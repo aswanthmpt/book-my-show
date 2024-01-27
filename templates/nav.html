@@ -1,0 +1,45 @@
+{% load static %}
+
+<nav class="navbar navbarone">
+  <div class="navone container-fluid d-flex ">
+    <a class="nav-link " href="{% url 'home'%}"><img src="{% static 'image/bookmyshow-logo.png' %}"></a>
+    <input type="text" placeholder="Search for Movies,Events,Plays,Sports,Activities">
+<div class=" navbt ms-auto ">
+
+      <a class="btn py-1 mx-1 " href="{% url 'register'%}" role="button">Add Movie</a>
+      {% if user.is_authenticated %}
+      <span>{{user}}</span>
+      <a class="btn py-1 mx-1" href="{% url 'auth:logout' %}" role="button">Logout</a>
+      {% else %}
+      <a class="btn py-1 mx-1" href="{% url 'auth:userregister'%}" role="button">Sign in</a>
+      <a class="btn py-1 mx-1" href="{% url 'auth:login'%}" role="button">Login</a>
+      {% endif %}
+      
+      <a class=" imgg py-1 mx-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" href="#"><img src="{% static 'image/reorder_FILL0_wght400_GRAD0_opsz24.png' %}"></a>
+    
+    </div>
+  </div>
+</nav>
+
+
+
+<nav class="navbar navbartwo">
+  <div class="navone container-fluid  ">
+    <a class="nav-link " href="#">Movies</a>
+    <a class="nav-link " href="#">Straem</a>
+    <a class="nav-link" href="#">Events</a>
+    <a class="nav-link disabled">Plays</a>
+    <a class="nav-link" href="#">Sports</a>
+    <a class="nav-link disabled">Activities</a>
+  </div>
+</nav>
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasRightLabel">Offcanvas right</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    ...
+  </div>
+</div>
